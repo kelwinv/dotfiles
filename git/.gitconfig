@@ -1,0 +1,144 @@
+[user]
+	name = kelwinv
+	email = kelwin08@gmail.com
+
+[core]
+	editor = nano
+	autocrlf = input
+	excludesfile = ~/.gitignore_global
+	pager = less -FRX
+
+[init]
+	defaultBranch = main
+
+[pull]
+	rebase = true
+
+[push]
+	default = current
+	followTags = true
+
+[fetch]
+	prune = true
+
+[merge]
+	conflictstyle = diff3
+	tool = vscode
+
+[diff]
+	colorMoved = zebra
+	tool = vscode
+
+[color]
+	ui = auto
+
+[color "branch"]
+	current = yellow reverse
+	local = yellow
+	remote = green
+
+[color "diff"]
+	meta = yellow bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+
+[color "status"]
+	added = yellow
+	changed = green
+	untracked = cyan
+
+[alias]
+	# Status
+	st = status -sb
+	s = status
+	
+	# Add
+	a = add
+	aa = add --all
+	ap = add --patch
+	
+	# Commit
+	c = commit -m
+	ca = commit --amend
+	can = commit --amend --no-edit
+	
+	# Branch
+	b = branch
+	ba = branch -a
+	bd = branch -d
+	bD = branch -D
+	
+	# Checkout
+	co = checkout
+	cob = checkout -b
+	com = checkout main
+	
+	# Push/Pull
+	p = push
+	pf = push --force-with-lease
+	pu = push -u origin HEAD
+	pl = pull --rebase
+	
+	# Fetch
+	f = fetch
+	fa = fetch --all
+	
+	# Merge
+	m = merge
+	ma = merge --abort
+	
+	# Rebase
+	rb = rebase
+	rbi = rebase -i
+	rbc = rebase --continue
+	rba = rebase --abort
+	
+	# Log
+	l = log --oneline
+	lg = log --oneline --decorate --graph --all
+	ll = log --pretty=format:'%C(yellow)%h%Creset %C(blue)%ad%Creset %C(green)%an%Creset %s %C(red)%d%Creset' --date=short
+	lol = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	
+	# Diff
+	d = diff
+	dc = diff --cached
+	ds = diff --stat
+	
+	# Stash
+	st = stash
+	stp = stash pop
+	stl = stash list
+	
+	# Reset
+	undo = reset --soft HEAD^
+	unstage = reset HEAD --
+	
+	# Remote
+	r = remote -v
+	
+	# Clean
+	cleanup = "!git branch --merged | grep -v '\\*\\|main\\|master\\|develop' | xargs -n 1 git branch -d"
+	
+	# Aliases úteis
+	aliases = config --get-regexp alias
+	last = log -1 HEAD
+	contributors = shortlog -sn
+	
+	# Worktree
+	wt = worktree
+	wta = worktree add
+	wtl = worktree list
+	wtp = worktree prune
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+
+[credential]
+	helper = store
+
+[help]
+	autocorrect = 1

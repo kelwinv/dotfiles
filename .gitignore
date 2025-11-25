@@ -1,0 +1,34 @@
+# Backups
+*.backup
+*.backup.*
+*~
+
+# Arquivos temporários
+*.swp
+*.swo
+*.tmp
+.DS_Store
+
+# Segredos e tokens
+*.secret
+*.key
+*.pem
+.env.local
+.env.*.local
+
+# Cache do Zsh
+.zcompdump*
+.zsh_sessions/
+
+# Histórico
+.zsh_history
+
+# Dados pessoais que não devem ser compartilhados
+git/.gitconfig.local
+zsh/.zshrc.local
+
+# Node modules se houver scripts
+node_modules/
+
+# Logs
+*.log
